@@ -2,17 +2,16 @@ package network
 
 import (
 	"io/ioutil"
-	"log"
 	"net/http"
+
+	"github.com/kypej/marshal/commonutils"
 )
 
-func SendReq(url string, chanel chan []byte) {
-	var response, err = http.Get(url)
-	CheckErr(err)
-	defer response.Body.Close()
-	body, err := ioutil.ReadAll(response.Body)
-	if err != nil {
-		log.Fatal(err)
-	}
-	chanel <- Page{url, (len(string(body)))}
+func SendReq(url string, respBody chan []byte) {
+	var resp, err = http.Get(url)
+	commonutils.CheckErr(err)
+	defer resp.Body.Close()
+	var body, err1 = ioutil.ReadAll(resp.Body)
+	commonutils.CheckErr(err1)
+	respBody <- body
 }
