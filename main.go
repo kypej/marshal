@@ -2,14 +2,10 @@ package main
 
 import (
 	"log"
+
+	"github.com/kypej/marshal/network"
 )
 
 func main() {
-	// sendreq
-}
-
-func CheckErr(err error) {
-	if err != nil {
-		log.Fatal(err)
-	}
+	network.SendReq("asd", "asd")
 }
