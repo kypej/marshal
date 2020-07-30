@@ -1,8 +1,6 @@
 package main
 
-import (
-	"github.com/kypej/marshal/server"
-)
+import "github.com/kypej/marshal/infrastructure/server"
 
 func main() {
 	server.UpServer()
