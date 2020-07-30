@@ -1,13 +1,11 @@
 package models
 
-type PokemonName struct{
-	Count int `json:"count"`
-    Next string
-	Previous string
-	Results []nameUrl
+type PokemonName struct {
+	Count    int    `json:"count"`
+	Next     string `json:"next"`
+	Previous string `json:"previous"`
+	Results  []struct {
+		Name string `json:"name"`
+		URL  string `json:"url"`
+	} `json:"results"`
 }
-
-type nameUrl struct {
-	Name string
-	Url string
-} 
